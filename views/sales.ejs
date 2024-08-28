@@ -8,7 +8,7 @@
 
     <style>
         .card{
-            width: 21rem;
+            /* width: 21rem; */
             border-radius: 10px;
             background-color: black;
             color: wheat;
@@ -59,12 +59,12 @@
   
   <body>
    
-    <small id="lastRefresh" style="font-size: 15px; float: right;"></small> 
+   
     
     <div class="container text-center">
-        
-        <div class="row" style="margin-top: 10px; align-items: center;">
-          <div class="col-6">
+         <small id="lastRefresh" style="font-size: 15px; float: right;"></small> <br>
+        <div class="row" style="margin-top: 10px;">
+          <div class="col-6 col-lg-4">
                 <div class="card">
                     <div class="card-body">
                        <div>
@@ -74,7 +74,7 @@
                     </div>
                 </div>
           </div>
-          <div class="col-6">
+          <div class="col-6 col-lg-4">
                 <div class="card">
                     <div class="card-body">
                         <h1 class="card-text tsales">Team Sales<br />last Month </h1> <h1 class="tdsales"  id="TotalLastMonth"></h1>
@@ -86,104 +86,89 @@
 
         <div class="row" style="margin-top: 10px;">
 
-            <div class="col">
+            <div class="col-12 col-lg-4">
                 <div class="card">
                     <div class="card-body">
-                        <h2 class="card-text">Spencer's Sales this Month</h2><h1  class="tdsales" id="SpencerMonth"></h1>
+                        <h2 class="card-text">Spencer's Sales <br> this Month</h2><h1  class="tdsales" id="SpencerMonth"></h1>
                     </div>
                 </div>
+              <div class="card">
+                  <div class="card-body">
+                      Monthly Goal $28,333.33
+                      <div  class="progress" role="progressbar" style="background-color: #3d68c442;" aria-label="Example with label" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                          <div class="progress-bar" id="SpencerMProgress" style="width: 0%"></div>
+                      </div><div class="totals" id="SpencerM2Progress">$0</div>
+                      <br>
+                      Quarterly Goal $85,000
+                      <div class="progress" role="progressbar" style="background-color: #8bc34a33" aria-label="Example with label" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                          <div class="progress-bar bg-success text-light" id="SpencerQProgress" style="width: 0%; background-color:orange; "></div>
+                      </div><div class="totals" id="SpencerQ2Progress">$0</div>
+                      <br>
+                      PC Club $340,000
+                      <div class="progress" role="progressbar"  style=" background-color: #fff40040;" aria-label="Example with label" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                          <div class="progress-bar bg-danger text-light" id="SpencerPCProgress" style="width: 0%"></div>
+                      </div><div class="totals" id="SpencerPC2Progress">$0</div>
+                  </div>
+              </div>
             </div>
 
 
-            <div class="col">
+            <div class="col-12 col-lg-4">
                 <div class="card">
                     <div class="card-body">
-                        <h2 class="card-text">David's Sales<br /> this Month <h1 class="tdsales" id="DavidMonth"></h1>
+                        <h2 class="card-text">David's Sales <br> this Month <h1 class="tdsales" id="DavidMonth"></h1>
                     </div>
                 </div>
+              <div class="card">
+                  <div class="card-body">
+                      Monthly Goal $13,833.33
+                      <div  class="progress" role="progressbar" style="background-color: #3d68c442;" aria-label="Example with label" aria-valuenow="0" aria-valuemin="0" aria-valuemax="28333">
+                          <div class="progress-bar" id="DavidMProgress" ></div>
+                      </div><div class="totals" id="DavidM2Progress">$0</div>
+                      <br>
+                      Quarterly Goal $41,500
+                      <div class="progress" role="progressbar" style="background-color: #8bc34a33" aria-label="Example with label" aria-valuenow="0" aria-valuemin="0" aria-valuemax="41500">
+                          <div class="progress-bar bg-success text-light" id="DavidQProgress" style="background-color:orange;"></div>
+                      </div><div class="totals" id="DavidQ2Progress">$0</div>
+                      <br>
+                      PC Club $166,000
+                      <div class="progress" role="progressbar" aria-label="Example with label" style=" background-color: #fff40040;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="166000">
+                          <div class="progress-bar bg-danger text-light" id="DavidPCProgress" style="width: 0%;"></div>
+                      </div><div class="totals" id="DavidPC2Progress">$0</div>
+                  </div>
+              </div>
             </div>
             
            
-            <div class="col">
+            <div class="col-12 col-lg-4">
                 <div class="card">
                     <div class="card-body">
-                        <h2 class="card-text ">Gowtham's Sales this Month</h2> <h1 class="tdsales" id="GowthamMonth"></h1>
+                        <h2 class="card-text ">Gowtham's Sales <br> this Month</h2> <h1 class="tdsales" id="GowthamMonth"></h1>
                     </div>
                 </div>
+              <div class="card">
+                  <div class="card-body">
+                      Monthly Goal $13,833.33
+                      <div class="progress" role="progressbar" style="background-color: #3d68c442;" aria-label="Example with label" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                          <div class="progress-bar" id="GowthamMProgress" style="width: 0%"></div>
+                      </div><div class="totals" id="GowthamM2Progress">$0</div>
+                      <br>
+                      Quarterly Goal $41,500
+                      <div class="progress" role="progressbar" style="background-color: #8bc34a33" aria-label="Example with label" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                          <div class="progress-bar  bg-success text-light" id="GowthamQProgress" style="width: 0%; background-color:orange;"></div>
+                      </div><div class="totals" id="GowthamQ2Progress">$0</div>
+                      <br>
+                      PC Club $166,000
+                      <div class="progress" role="progressbar"  style=" background-color: #fff40040;" aria-label="Example with label" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                          <div class="progress-bar bg-danger text-light" id="GowthamPCProgress" style="width: 0%"></div>
+                      </div><div class="totals" id="GowthamPC2Progress">$0</div>
+                  </div>
+              </div>
             </div>
 
         </div>
 
-        <div class="row" style="margin-top: 10px;">
-
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        Monthly Goal $28,333.33
-                        <div  class="progress" role="progressbar" style="background-color: #3d68c442;" aria-label="Example with label" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-                            <div class="progress-bar" id="SpencerMProgress" style="width: 0%"></div>
-                        </div><div class="totals" id="SpencerM2Progress">$0</div>
-                        <br>
-                        Quarterly Goal $85,000
-                        <div class="progress" role="progressbar" style="background-color: #8bc34a33" aria-label="Example with label" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-                            <div class="progress-bar bg-success text-light" id="SpencerQProgress" style="width: 0%; background-color:orange; "></div>
-                        </div><div class="totals" id="SpencerQ2Progress">$0</div>
-                        <br>
-                        PC Club $340,000
-                        <div class="progress" role="progressbar"  style=" background-color: #fff40040;" aria-label="Example with label" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-                            <div class="progress-bar bg-danger text-light" id="SpencerPCProgress" style="width: 0%"></div>
-                        </div><div class="totals" id="SpencerPC2Progress">$0</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        Monthly Goal $13,833.33
-                        <div  class="progress" role="progressbar" style="background-color: #3d68c442;" aria-label="Example with label" aria-valuenow="0" aria-valuemin="0" aria-valuemax="28333">
-                            <div class="progress-bar" id="DavidMProgress" ></div>
-                        </div><div class="totals" id="DavidM2Progress">$0</div>
-                        <br>
-                        Quarterly Goal $41,500
-                        <div class="progress" role="progressbar" style="background-color: #8bc34a33" aria-label="Example with label" aria-valuenow="0" aria-valuemin="0" aria-valuemax="41500">
-                            <div class="progress-bar bg-success text-light" id="DavidQProgress" style="background-color:orange;"></div>
-                        </div><div class="totals" id="DavidQ2Progress">$0</div>
-                        <br>
-                        PC Club $166,000
-                        <div class="progress" role="progressbar" aria-label="Example with label" style=" background-color: #fff40040;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="166000">
-                            <div class="progress-bar bg-danger text-light" id="DavidPCProgress" style="width: 0%;"></div>
-                        </div><div class="totals" id="DavidPC2Progress">$0</div>
-                    </div>
-                </div>
-            </div>
-
-           
-
-           
-
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        Monthly Goal $13,833.33
-                        <div class="progress" role="progressbar" style="background-color: #3d68c442;" aria-label="Example with label" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-                            <div class="progress-bar" id="GowthamMProgress" style="width: 0%"></div>
-                        </div><div class="totals" id="GowthamM2Progress">$0</div>
-                        <br>
-                        Quarterly Goal $41,500
-                        <div class="progress" role="progressbar" style="background-color: #8bc34a33" aria-label="Example with label" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-                            <div class="progress-bar  bg-success text-light" id="GowthamQProgress" style="width: 0%; background-color:orange;"></div>
-                        </div><div class="totals" id="GowthamQ2Progress">$0</div>
-                        <br>
-                        PC Club $166,000
-                        <div class="progress" role="progressbar"  style=" background-color: #fff40040;" aria-label="Example with label" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-                            <div class="progress-bar bg-danger text-light" id="GowthamPCProgress" style="width: 0%"></div>
-                        </div><div class="totals" id="GowthamPC2Progress">$0</div>
-                    </div>
-                </div>
-            </div>
-        </div>
- 
+      
         <footer>
                 <small style="float: right;"><i>* All data indicated here is GM and refreshed every 30 minutes.</i></small>
         </footer>

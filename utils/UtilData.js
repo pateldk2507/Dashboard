@@ -3,9 +3,9 @@ const { get } = require("http");
 const moment = require("moment");
 
 const tokenUrl = "https://teleco.halopsa.com/auth/token";
-const clientId = "7fc5f8e1-1b70-4ad3-b052-133f5afc94c7";
+const clientId = process.env.clientId;
 const clientSecret =
-  "e0a69f53-4180-43f5-b297-40685d222260-36350af7-5326-4893-ab11-b3a791265bd3";
+ process.env.clientSecret;
 
 let accessToken = null;
 let tokenExpiry = null;

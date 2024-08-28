@@ -9,14 +9,36 @@ if (typeof localStorage === "undefined" || localStorage === null) {
 const baseURL = 'https://teleco.halopsa.com/api';
 
 module.exports.index = async function(req,res){  
-    ;
-
       try {
-
-
+            res.render('invoice');
+    
           } catch (error) {
               console.log(error);
               res.render('404',{error: error});
           }
 
+}
+
+module.exports.getData = async function(req,res){
+
+    let invoiceID = req.query.invoiceID;
+    
+    try{
+        options = {
+            'headers' : {'Authorization' : 'bearer ' + await getAccessToken(),}
+        };
+
+        const getInvoice = await axios.get(`https://teleco.halopsa.com/api/Invoice/${invoiceID}?includedetails=true`,options)
+            .then(res=>{return res.data})
+            .catch(function (error) {
+                console.log(error.response);
+            })
+
+        res.send({data: getInvoice});
+
+    }catch(error){
+        console.log(error);
+          res.render('404',{error: error});
     }
+}
+
