@@ -1,14 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const ITController = require('../controller/ITController.js');
+const SalesController = require('../controller/SalesController.js');
 
-console.log('IT Router');
+console.log('Sales Router');
 
-router.get('/',ITController.index);
-
-// router.use('/month', require('./month'));
-// router.use('/week', require('./week'));
-// router.use('/invoice',require('./invoice'));
-
+router.get('/',SalesController.index);
+router.get('/data',SalesController.data);
 
 module.exports = router;

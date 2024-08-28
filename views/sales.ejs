@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sales Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+        .card{
+            width: 21rem;
+            border-radius: 10px;
+            background-color: black;
+            color: wheat;
+            margin-top: 15px;
+            font-size: 2em;
+
+        }
+        .row{
+            justify-content: center;
+            
+        }
+        .card-body{
+            /* box-shadow: 6px 3px 6px 2px gray; */
+            box-shadow: 0px 0px 4px 2px #938219;
+            border: 1px solid white;
+            padding: 7px;
+            border-radius: 10px;
+           
+        }
+        body{
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            background-color: black;
+            color: white;
+        }
+	.totals{
+	   font-size:0.5em;
+	}
+	.tsales{
+	   color:goldenrod;
+	}
+    .bg-danger {
+    --bs-bg-opacity: 1;
+    background-color: #FFEB3B !important;
+}
+	.tdsales{
+	color:green;
+	}
+    </style>
+
+    <script>
+         setInterval(function() {
+            window.location.reload();
+        }, 1800000); //Refresh page in 30 minutes
+
+       
+    </script>
+  </head>
+  
+  <body>
+   
+    <small id="lastRefresh" style="font-size: 15px; float: right;"></small> 
+    
+    <div class="container text-center">
+        
+        <div class="row" style="margin-top: 10px; align-items: center;">
+          <div class="col-6">
+                <div class="card">
+                    <div class="card-body">
+                       <div>
+                           <h1 class="card-text tsales" >Team Sales<br />this Month </h1> <h1 class="tdsales"  id="totalthisMonth"></h1>
+
+                       </div> 
+                    </div>
+                </div>
+          </div>
+          <div class="col-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-text tsales">Team Sales<br />last Month </h1> <h1 class="tdsales"  id="TotalLastMonth"></h1>
+                    </div>
+                </div>
+          </div>
+       
+        </div>
+
+        <div class="row" style="margin-top: 10px;">
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-text">Spencer's Sales this Month</h2><h1  class="tdsales" id="SpencerMonth"></h1>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-text">David's Sales<br /> this Month <h1 class="tdsales" id="DavidMonth"></h1>
+                    </div>
+                </div>
+            </div>
+            
+           
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-text ">Gowtham's Sales this Month</h2> <h1 class="tdsales" id="GowthamMonth"></h1>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row" style="margin-top: 10px;">
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        Monthly Goal $28,333.33
+                        <div  class="progress" role="progressbar" style="background-color: #3d68c442;" aria-label="Example with label" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar" id="SpencerMProgress" style="width: 0%"></div>
+                        </div><div class="totals" id="SpencerM2Progress">$0</div>
+                        <br>
+                        Quarterly Goal $85,000
+                        <div class="progress" role="progressbar" style="background-color: #8bc34a33" aria-label="Example with label" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar bg-success text-light" id="SpencerQProgress" style="width: 0%; background-color:orange; "></div>
+                        </div><div class="totals" id="SpencerQ2Progress">$0</div>
+                        <br>
+                        PC Club $340,000
+                        <div class="progress" role="progressbar"  style=" background-color: #fff40040;" aria-label="Example with label" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar bg-danger text-light" id="SpencerPCProgress" style="width: 0%"></div>
+                        </div><div class="totals" id="SpencerPC2Progress">$0</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        Monthly Goal $13,833.33
+                        <div  class="progress" role="progressbar" style="background-color: #3d68c442;" aria-label="Example with label" aria-valuenow="0" aria-valuemin="0" aria-valuemax="28333">
+                            <div class="progress-bar" id="DavidMProgress" ></div>
+                        </div><div class="totals" id="DavidM2Progress">$0</div>
+                        <br>
+                        Quarterly Goal $41,500
+                        <div class="progress" role="progressbar" style="background-color: #8bc34a33" aria-label="Example with label" aria-valuenow="0" aria-valuemin="0" aria-valuemax="41500">
+                            <div class="progress-bar bg-success text-light" id="DavidQProgress" style="background-color:orange;"></div>
+                        </div><div class="totals" id="DavidQ2Progress">$0</div>
+                        <br>
+                        PC Club $166,000
+                        <div class="progress" role="progressbar" aria-label="Example with label" style=" background-color: #fff40040;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="166000">
+                            <div class="progress-bar bg-danger text-light" id="DavidPCProgress" style="width: 0%;"></div>
+                        </div><div class="totals" id="DavidPC2Progress">$0</div>
+                    </div>
+                </div>
+            </div>
+
+           
+
+           
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        Monthly Goal $13,833.33
+                        <div class="progress" role="progressbar" style="background-color: #3d68c442;" aria-label="Example with label" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar" id="GowthamMProgress" style="width: 0%"></div>
+                        </div><div class="totals" id="GowthamM2Progress">$0</div>
+                        <br>
+                        Quarterly Goal $41,500
+                        <div class="progress" role="progressbar" style="background-color: #8bc34a33" aria-label="Example with label" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar  bg-success text-light" id="GowthamQProgress" style="width: 0%; background-color:orange;"></div>
+                        </div><div class="totals" id="GowthamQ2Progress">$0</div>
+                        <br>
+                        PC Club $166,000
+                        <div class="progress" role="progressbar"  style=" background-color: #fff40040;" aria-label="Example with label" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar bg-danger text-light" id="GowthamPCProgress" style="width: 0%"></div>
+                        </div><div class="totals" id="GowthamPC2Progress">$0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+ 
+        <footer>
+                <small style="float: right;"><i>* All data indicated here is GM and refreshed every 30 minutes.</i></small>
+        </footer>
+    </div>
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+
+        const currentQuarterly = currentQuarterlyDates();
+
+
+        var xhr = new XMLHttpRequest();
+            var url = '/sales/data';
+            xhr.open('GET', url, true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    salesData = JSON.parse(xhr.responseText);
+                    console.log(salesData.data);
+                    var totalByDavid=0;
+                    var totalBySpencer=0, totalByGowtham=0, totalByChelsea=0;
+                    var totalLastMonth = 0;
+
+                    var Quarterly=[];
+                    Quarterly[0] = 0;
+                    Quarterly[1] = 0;
+                    Quarterly[2] = 0;
+                    Quarterly[3] = 0;
+
+                    var PC = [];
+                    PC[0] = 0;
+                    PC[1] = 0;
+                    PC[2] = 0;
+                    PC[3] = 0;
+
+                    let qStart = new Date(currentQuarterly.start);
+                    let qEnd = new Date(currentQuarterly.end);
+                    
+                    (salesData.data).forEach(element => {
+                        let date = new Date(element.OrderDate);
+                        let today = new Date();
+                        let currMonth = today.getMonth();
+                        let OrderMonth = date.getMonth();
+
+                        if(element.GP != undefined && element.GP > 0){
+                            
+                            if(currMonth == OrderMonth){
+
+                                switch (element.CreatedBy) {
+                                    case '13': totalBySpencer+= parseFloat(element.GP);break;
+                                    case '20': totalByDavid+= parseFloat(element.GP);break;
+                                    case '33': totalByChelsea+= parseFloat(element.GP);break;
+                                    case '34': totalByGowtham+= parseFloat(element.GP);break;         
+                                    default: break;
+                                }
+                           
+                            }else if((currMonth-1) == OrderMonth){
+                                totalLastMonth += parseFloat(element.Revenue);
+                                
+                            }
+
+                         
+                            if(date>= qStart && date<= qEnd){
+                              
+                                switch(element.CreatedBy){
+                                    case '20':  Quarterly[0] += parseFloat(element.GP); break;
+                                    case '13':  Quarterly[1] += parseFloat(element.GP); break;
+                                    case '33':  Quarterly[2] += parseFloat(element.GP); break;
+                                    case '34':  Quarterly[3] += parseFloat(element.GP); break;
+                                    default : break;
+                                }
+                                
+                            }
+
+                            switch(element.CreatedBy){
+                                    case '20':  PC[0] += parseFloat(element.GP); break;
+                                    case '13':  PC[1] += parseFloat(element.GP); break;
+                                    case '33':  PC[2] += parseFloat(element.GP); break;
+                                    case '34':  PC[3] += parseFloat(element.GP); break;
+                                    default : break;
+                                }
+
+
+                        }
+                            
+                    });
+
+                    document.getElementById('DavidMonth').innerHTML +=  formatCurrency(totalByDavid);
+                    document.getElementById('SpencerMonth').innerHTML += formatCurrency(totalBySpencer);
+                 
+                    document.getElementById('GowthamMonth').innerHTML += formatCurrency(totalByGowtham);
+
+                    document.getElementById('totalthisMonth').innerHTML += formatCurrency(totalByDavid + totalBySpencer + totalByChelsea + totalByGowtham);
+                    document.getElementById('TotalLastMonth').innerHTML += formatCurrency(totalLastMonth);
+
+                    // David 
+                    document.getElementById('DavidMProgress').style.width = ((totalByDavid*100)/13833.33).toFixed(0) + '%';
+                    document.getElementById('DavidM2Progress').innerText = formatCurrency(totalByDavid) + ' ('+  ((totalByDavid*100)/13833.33).toFixed(0) + '%)';
+
+                    document.getElementById('DavidQProgress').style.width = ((Quarterly[0]*100)/41500).toFixed(0) + '%';
+                    //document.getElementById('DavidQProgress').innerText = formatCurrency(Quarterly[0]) + ' (' +((Quarterly[0]*100)/41500).toFixed(0) + '%)';
+                    document.getElementById('DavidQ2Progress').innerText = formatCurrency(Quarterly[0]) + ' (' +((Quarterly[0]*100)/41500).toFixed(0) + '%)';
+
+                    document.getElementById('DavidPCProgress').style.width = ((PC[0]*100)/166000).toFixed(0) + '%';
+                    //document.getElementById('DavidPCProgress').innerText = formatCurrency(PC[0]) +' ('+ ((PC[0]*100)/166000).toFixed(0) + '%)';
+                    document.getElementById('DavidPC2Progress').innerText = formatCurrency(PC[0]) +' ('+ ((PC[0]*100)/166000).toFixed(0) + '%)';
+
+                    // Spencer 
+                    document.getElementById('SpencerMProgress').style.width = ((totalBySpencer*100)/28333).toFixed(0) + '%';
+                    document.getElementById('SpencerM2Progress').innerText = formatCurrency(totalBySpencer) +' ('+  ((totalBySpencer*100)/28333).toFixed(0) + '%)';
+
+
+                    document.getElementById('SpencerQProgress').style.width = ((Quarterly[1]*100)/85500).toFixed(0) + '%';
+                    //document.getElementById('SpencerQProgress').innerText = formatCurrency(Quarterly[1]) + ' (' +((Quarterly[1]*100)/85500).toFixed(0) + '%)';
+                    document.getElementById('SpencerQ2Progress').innerText = formatCurrency(Quarterly[1]) + ' (' +((Quarterly[1]*100)/85500).toFixed(0) + '%)';
+
+                    document.getElementById('SpencerPCProgress').style.width = ((PC[1]*100)/340000).toFixed(0) + '%';
+                    //document.getElementById('SpencerPCProgress').innerText = formatCurrency(PC[1]) + ' (' +((PC[1]*100)/340000).toFixed(0) + '%)';
+                    document.getElementById('SpencerPC2Progress').innerText = formatCurrency(PC[1]) + ' (' +((PC[1]*100)/340000).toFixed(0) + '%)';
+
+                    
+                   
+                    // Gowtham 
+                    document.getElementById('GowthamMProgress').style.width = ((totalByGowtham*100)/13833.33).toFixed(0) + '%';
+                    document.getElementById('GowthamM2Progress').innerText = formatCurrency(totalByGowtham) +' ('+  ((totalByGowtham*100)/13833.33).toFixed(0) + '%)';
+
+                    document.getElementById('GowthamQProgress').style.width = ((Quarterly[3]*100)/41500).toFixed(0) + '%';
+                    //document.getElementById('GowthamQProgress').innerText = formatCurrency(Quarterly[3]) + ' (' +((Quarterly[3]*100)/41500).toFixed(0) + '%)';
+                    document.getElementById('GowthamQ2Progress').innerText = formatCurrency(Quarterly[3]) + ' (' +((Quarterly[3]*100)/41500).toFixed(0) + '%)';
+
+                    document.getElementById('GowthamPCProgress').style.width = ((PC[3]*100)/166000).toFixed(0) + '%';
+                    //document.getElementById('GowthamPCProgress').innerText =formatCurrency(PC[3]) + ' (' + ((PC[3]*100)/166000).toFixed(0) + '%)';
+                    document.getElementById('GowthamPC2Progress').innerText =formatCurrency(PC[3]) + ' (' + ((PC[3]*100)/166000).toFixed(0) + '%)';
+                    
+
+                   
+                
+                    
+                }
+            };
+            xhr.send();
+      
+            function formatCurrency(params) {
+                return params.toLocaleString('en-US',{style: 'currency', currency : 'USD'});
+            }
+            function currentQuarterlyDates() {
+                const currentDate = new Date();
+                const currentYear = currentDate.getFullYear();
+                const currentMonth = currentDate.getMonth();
+            
+                const startMonth = [0, 3, 6, 9]; 
+                let QuarterlyIndex;
+                if (currentMonth >= 0 && currentMonth < 3) {
+                    QuarterlyIndex = 0; 
+                } else if (currentMonth >= 3 && currentMonth < 6) {
+                    QuarterlyIndex = 1; 
+                } else if (currentMonth >= 6 && currentMonth < 9) {
+                    QuarterlyIndex = 2; 
+                } else {
+                    QuarterlyIndex = 3; 
+                }
+                const startDate = new Date(currentYear, startMonth[QuarterlyIndex], 1);
+                let endDate;
+                if (QuarterlyIndex === 0) { 
+                    endDate = new Date(currentYear, 2, startDate.getDate() === 29 ? 31 : 30); 
+                } else if (QuarterlyIndex === 1) { 
+                    endDate = new Date(currentYear, 5, 30); 
+                } else if (QuarterlyIndex === 2) { 
+                    endDate = new Date(currentYear, 8, 30); 
+                } else { 
+                    endDate = new Date(currentYear, 11, 31); 
+                }
+                return {
+                    start: startDate.toDateString(),
+                    end: endDate.toDateString()
+                };
+            }
+
+            const currentTime = new Date().toLocaleString();
+            document.getElementById('lastRefresh').innerText = `Last Refresh Time: ${currentTime}`;
+    </script>
+  </body>
+</html>

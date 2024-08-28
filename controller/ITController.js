@@ -45,9 +45,9 @@ module.exports.index = async function(req,res){
             });
 
             const Agent = (localStorage.getItem('agent')) ? localStorage.getItem('agent') : await getAgents();
-            console.log(Agent);
+            
         
-             res.render('IT',{ status : 'OK', today: TODAY ,  data : data , SlaData : SLA , Agent : localStorage.getItem('agent').split(','), InProgress : allTimeDataInProgress,WithUser : allTimeDataWithUser , AllTimeAvg : getAvgTime, AllTimeOnHold :                 allTimeDataonHold});
+             res.render('IT',{ status : 'OK', today: TODAY ,  data : data , SlaData : SLA , Agent : Agent.split(','), InProgress : allTimeDataInProgress,WithUser : allTimeDataWithUser , AllTimeAvg : getAvgTime, AllTimeOnHold : allTimeDataonHold});
         } catch (error) {
             console.log(error);
             res.render('404',{error: error});
