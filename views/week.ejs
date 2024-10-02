@@ -31,7 +31,7 @@
               color: white;
               /* border-bottom: 1px solid; */
               height: 180px;
-              width: 265px;
+              width: 255px;
               text-align: left;
               font-size: 12px;
               list-style: decimal;
@@ -85,6 +85,9 @@
               window.location.reload();
           }, 60000); 
 
+
+          console.log(window.screen.availWidth);
+          
 
 
           var weeklyData =  <%- JSON.stringify(weeklyData) %>;
@@ -182,7 +185,7 @@
              weeklyData.forEach(element => {
 
                       var start_date = new Date(element.start_date+'Z');
-                      var end_date = new Date(element.end_date);
+                      var end_date = new Date(element.end_date + 'Z');
                       let options = { timeStyle: 'short', hour12: true,  };
 
                       if(newAgentList.includes(element.agent_id)  ){
@@ -190,7 +193,9 @@
                           document.addEventListener("DOMContentLoaded", function() {
                               var id = 'a' + start_date.getDate() + element.agent_id;
                               const getDiv = document.getElementById(id);
-                              getDiv.innerHTML += "<li class='content'> <span style='color:red'> Ticket#" + element.ticket_id + "</span> " + element.client_name +  "-" +  element.site_name + "-" + element.subject +" <span style='color:red'>" + (end_date.getHours() - start_date.getHours()) + " hrs </span> <span style='color: #00FF00'> From: " + start_date.toLocaleTimeString('en-US', options) +" to "+ end_date.toLocaleTimeString('en-US', options)  + "</li>" ;
+                              if(element.is_prive == false || element.ticket_id !=0){
+                                  getDiv.innerHTML += "<li class='content'> <span style='color:red'> Ticket#" + element.ticket_id + "</span> " + element.client_name +  "-" +  element.site_name + "-" + element.subject +" <span style='color:red'>" + (end_date.getHours() - start_date.getHours()) + " hrs </span> <span style='color: #00FF00'> From: " + start_date.toLocaleTimeString('en-US', options) +" to "+ end_date.toLocaleTimeString('en-US', options)  + "</li> <br>" ;
+                              }
 
 
                               const divElements = document.querySelectorAll('div');

@@ -19,7 +19,7 @@ module.exports.index = async function(req,res){
         'headers' : {'Authorization' : 'bearer ' + await getAccessToken(),}
     };
     try {
-            const data  =  await  axios.get(`${baseURL}/tickets?datesearch=dateoccured&startdate=${TODAY}&requesttype_id=29&includetimetaken=true&includeslatimer=true`,options).then(response => {
+            const data  =  await  axios.get(`${baseURL}/tickets?status_id=1&requesttype_id=29&includetimetaken=true&includeslatimer=true`,options).then(response => {
                 return response.data;
             })
 
@@ -45,9 +45,35 @@ module.exports.index = async function(req,res){
             });
 
             const Agent = (localStorage.getItem('agent')) ? localStorage.getItem('agent') : await getAgents();
-            
+          
         
              res.render('IT',{ status : 'OK', today: TODAY ,  data : data , SlaData : SLA , Agent : Agent.split(','), InProgress : allTimeDataInProgress,WithUser : allTimeDataWithUser , AllTimeAvg : getAvgTime, AllTimeOnHold : allTimeDataonHold});
+        } catch (error) {
+            console.log(error);
+            res.render('404',{error: error});
+        }
+  }
+
+
+  module.exports.test = async function(req,res){
+
+    
+
+    console.log(req.query);
+    for(var i in req.query){
+        console.log(i,req.query[i]);
+    }
+
+    options = {
+        'headers' : {'Authorization' : 'bearer ' + await getAccessToken(),}
+    };
+    try {
+            const data  =  await  axios.get(`${baseURL}/${req.query.api}`,options).then(response => {
+                return response.data;
+            });
+
+            res.send(data);
+
         } catch (error) {
             console.log(error);
             res.render('404',{error: error});
